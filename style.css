@@ -12,7 +12,7 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  min-height: 100vh;
   margin: 0;
   font-size: 7.5vmin;
 }
@@ -61,11 +61,10 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  /* border: 1vmin solid #AAA; */
   font-size: 3vmin;
   width: 66vmin;
   border-radius: 1vmin;
-  margin-bottom: 3vmin;
+  margin-bottom: 2vmin;
 }
 
 .heading1 {
