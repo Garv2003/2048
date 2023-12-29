@@ -15,6 +15,69 @@ setupInput();
 
 function setupInput() {
   window.addEventListener("keydown", handleInput, { once: true });
+  window.addEventListener("touchstart", handleTouchStart, { once: true });
+}
+
+let xDown = null;
+let yDown = null;
+
+function handleTouchStart(e) {
+  xDown = e.touches[0].clientX;
+  yDown = e.touches[0].clientY;
+  window.addEventListener("touchmove", handleTouchMove, { once: true });
+}
+
+function handleTouchMove(e) {
+  const xUp = e.touches[0].clientX;
+  const yUp = e.touches[0].clientY;
+
+  const xDiff = xDown - xUp;
+  const yDiff = yDown - yUp;
+
+  if (Math.abs(xDiff) > Math.abs(yDiff)) {
+    if (xDiff > 0) {
+      if (!canMoveLeft()) {
+        setupInput();
+        return;
+      }
+      moveLeft();
+    } else {
+      if (!canMoveRight()) {
+        setupInput();
+        return;
+      }
+      moveRight();
+    }
+  } else {
+    if (yDiff > 0) {
+      if (!canMoveUp()) {
+        setupInput();
+        return;
+      }
+      moveUp();
+    } else {
+      if (!canMoveDown()) {
+        setupInput();
+        return;
+      }
+      moveDown();
+    }
+  }
+
+  grid.cells.forEach((cell) => cell.mergeTiles());
+
+  const newTile = new Tile(gameBoard);
+  grid.randomEmptyCell().tile = newTile;
+
+  if (!canMoveUp() && !canMoveDown() && !canMoveLeft() && !canMoveRight()) {
+    newTile.waitForTransition(true).then(() => {
+      alert("You lose");
+      window.location.reload();
+    });
+    return;
+  }
+
+  setupInput();
 }
 
 async function handleInput(e) {
