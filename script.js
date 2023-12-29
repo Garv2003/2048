@@ -15,7 +15,7 @@ setupInput();
 
 function setupInput() {
   window.addEventListener("keydown", handleInput, { once: true });
-  window.addEventListener("touchstart", handleTouchStart, { once: true });
+  gameBoard.addEventListener("touchstart", handleTouchStart, { once: true });
 }
 
 let xDown = null;
@@ -25,7 +25,7 @@ function handleTouchStart(e) {
   e.preventDefault();
   xDown = e.touches[0].clientX;
   yDown = e.touches[0].clientY;
-  window.addEventListener("touchmove", handleTouchMove, { once: true });
+  gameBoard.addEventListener("touchmove", handleTouchMove, { once: true });
 }
 
 function handleTouchMove(e) {
