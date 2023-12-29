@@ -64,21 +64,7 @@ function handleTouchMove(e) {
       moveDown();
     }
   }
-
-  grid.cells.forEach((cell) => cell.mergeTiles());
-
-  const newTile = new Tile(gameBoard);
-  grid.randomEmptyCell().tile = newTile;
-
-  if (!canMoveUp() && !canMoveDown() && !canMoveLeft() && !canMoveRight()) {
-    newTile.waitForTransition(true).then(() => {
-      alert("You lose");
-      window.location.reload();
-    });
-    return;
-  }
-
-  setupInput();
+  handleAfterMove();
 }
 
 async function handleInput(e) {
@@ -115,7 +101,10 @@ async function handleInput(e) {
       setupInput();
       return;
   }
+  handleAfterMove();
+}
 
+function handleAfterMove() {
   grid.cells.forEach((cell) => cell.mergeTiles());
 
   const newTile = new Tile(gameBoard);
