@@ -22,6 +22,7 @@ let xDown = null;
 let yDown = null;
 
 function handleTouchStart(e) {
+  e.preventDefault();
   xDown = e.touches[0].clientX;
   yDown = e.touches[0].clientY;
   window.addEventListener("touchmove", handleTouchMove, { once: true });
