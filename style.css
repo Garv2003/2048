@@ -145,6 +145,23 @@ body {
   color: #f9f6f2;
 }
 
-.scorecolor{
+.scorecolor {
   color: #eee4da;
+}
+
+@media screen and (max-width: 700px) {
+  #score-board {
+    width: 90vmin;
+  }
+  #game-board {
+    display: grid;
+    grid-template-columns: repeat(var(--grid-size), 20vmin);
+    grid-template-rows: repeat(var(--grid-size), 20vmin);
+  }
+  .tile {
+    width: 20vmin;
+    height: 20vmin;
+    top: calc(var(--y) * (20vmin + var(--cell-gap)) + var(--cell-gap));
+    left: calc(var(--x) * (20vmin + var(--cell-gap)) + var(--cell-gap));
+  }
 }

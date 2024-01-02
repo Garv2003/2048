@@ -1,38 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/x-icon" href="./favicon.ico" />
-    <title>2048</title>
-    <link rel="stylesheet" href="style.css" />
-    <script src="script.js" type="module"></script>
-  </head>
-  <body>
-    <div id="score-board">
-      <div class="heading1">
-        <div class="head1">2048</div>
-        <div class="scorebox">
-          <div id="score">
-            <span class="scorecolor">SCORE</span>
-            <div class="scoreno">0</div>
-          </div>
-          <div id="bestscore">
-            <span class="scorecolor">BEST</span>
-            <div class="bestno">0</div>
-          </div>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/x-icon" href="./favicon.ico" />
+  <title>2048</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="script.js" type="module"></script>
+</head>
+
+<body>
+  <div id="score-board">
+    <div class="heading1">
+      <div class="head1">2048</div>
+      <div class="scorebox">
+        <div id="score">
+          <span class="scorecolor">SCORE</span>
+          <div class="scoreno">0</div>
         </div>
-      </div>
-      <div class="heading2">
-        <div class="head2">
-          <div>
-            Join the tiles, get to <strong class="strong">2048</strong>!
-          </div>
-          <div class="list">How to play →</div>
+        <div id="bestscore">
+          <span class="scorecolor">BEST</span>
+          <div class="bestno">0</div>
         </div>
-        <div class="btn">New Game</div>
       </div>
     </div>
-    <div id="game-board"></div>
-  </body>
+    <div class="heading2">
+      <div class="head2">
+        <div>
+          Join the tiles, get to <strong class="strong">2048</strong>!
+        </div>
+        <div class="list">How to play →</div>
+      </div>
+      <div class="btn">New Game</div>
+    </div>
+  </div>
+  <div id="game-board"></div>
+
+  <!-- <div>
+    HOW TO PLAY: Use your arrow keys to move the tiles. Tiles with the same number merge into one when they touch. Add
+    them up to reach 2048!
+    Start playing →
+  </div> -->
+</body>
+
 </html>
