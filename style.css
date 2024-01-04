@@ -5,6 +5,11 @@
   font-family: Arial;
 }
 
+a {
+  text-decoration: none;
+  color: #776e65;
+}
+
 body {
   background-color: #faf8ef;
   display: flex;
@@ -62,9 +67,22 @@ body {
   flex-direction: column;
   justify-content: space-between;
   font-size: 3vmin;
-  width: 66vmin;
+  width: 60vmin;
   border-radius: 1vmin;
   margin-bottom: 2vmin;
+}
+
+.instructions {
+  margin-top: 20px;
+  font-size: 2.5vmin;
+  width: 60vmin;
+  text-align: center;
+}
+
+.instructions span {
+  font-size: 2.5vmin;
+  font-weight: bold;
+  color: #776e65;
 }
 
 .heading1 {
@@ -151,17 +169,21 @@ body {
 
 @media screen and (max-width: 700px) {
   #score-board {
-    width: 90vmin;
+    width:80vmin;
   }
   #game-board {
     display: grid;
-    grid-template-columns: repeat(var(--grid-size), 20vmin);
-    grid-template-rows: repeat(var(--grid-size), 20vmin);
+    grid-template-columns: repeat(var(--grid-size), 18vmin);
+    grid-template-rows: repeat(var(--grid-size), 18vmin);
   }
   .tile {
-    width: 20vmin;
-    height: 20vmin;
-    top: calc(var(--y) * (20vmin + var(--cell-gap)) + var(--cell-gap));
-    left: calc(var(--x) * (20vmin + var(--cell-gap)) + var(--cell-gap));
+    width: 18vmin;
+    height: 18vmin;
+    top: calc(var(--y) * (18vmin + var(--cell-gap)) + var(--cell-gap));
+    left: calc(var(--x) * (18vmin + var(--cell-gap)) + var(--cell-gap));
+  }
+  .instructions {
+    font-size: 3vmin;
+    width: 80vmin;
   }
 }
