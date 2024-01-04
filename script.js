@@ -2,7 +2,8 @@ import Grid from "./Grid.js";
 import Tile from "./Tile.js";
 
 const gameBoard = document.getElementById("game-board");
-
+const gamemessage = document.querySelector(".game-message");
+const gameover = document.querySelector("#game-over");
 const newgame = document.querySelector(".btn");
 newgame.addEventListener("click", () => {
   window.location.reload();
@@ -112,8 +113,7 @@ function handleAfterMove() {
 
   if (!canMoveUp() && !canMoveDown() && !canMoveLeft() && !canMoveRight()) {
     newTile.waitForTransition(true).then(() => {
-      alert("You lose");
-      window.location.reload();
+      gamemessage.classList.add("game-over");
     });
     return;
   }
@@ -192,3 +192,7 @@ function canMove(cells) {
     });
   });
 }
+
+gameover.addEventListener("click", () => {
+  window.location.reload();
+});

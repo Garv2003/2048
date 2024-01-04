@@ -130,7 +130,26 @@ body {
   font-weight: bold;
   cursor: pointer;
 }
-
+.game-message {
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 5vmin;
+  font-weight: bold;
+  color: #776e65;
+  background-color: rgba(238, 228, 218, 0.73);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  display: none;
+}
+.game-over
+{
+  display: flex;
+}
 .scorebox {
   display: flex;
   flex-direction: row;
@@ -169,7 +188,7 @@ body {
 
 @media screen and (max-width: 700px) {
   #score-board {
-    width:80vmin;
+    width: 80vmin;
   }
   #game-board {
     display: grid;
