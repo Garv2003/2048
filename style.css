@@ -49,10 +49,87 @@ body {
   top: calc(var(--y) * (var(--cell-size) + var(--cell-gap)) + var(--cell-gap));
   left: calc(var(--x) * (var(--cell-size) + var(--cell-gap)) + var(--cell-gap));
   font-weight: bold;
-  background-color: hsl(30, 37%, var(--background-lightness));
+  /* background-color: hsl(30, 37%, var(--background-lightness)); */
   /* color: hsl(200, 25%, var(--text-lightness)); */
+  background-color: #3c3a32;
+  color: #f9f6f2;
   animation: show 200ms ease-in-out;
   transition: 100ms ease-in-out;
+}
+
+.tile[data-value="2"] {
+  background-color: #eee4da;
+  color: #776e65;
+}
+
+.tile[data-value="4"] {
+  background-color: #ede0c8;
+  color: #776e65;
+}
+
+.tile[data-value="8"] {
+  background-color: #f2b179;
+  color: #f9f6f2;
+}
+
+.tile[data-value="16"] {
+  background-color: #f59563;
+  color: #f9f6f2;
+}
+
+.tile[data-value="32"] {
+  background-color: #f67c5f;
+  color: #f9f6f2;
+}
+
+.tile[data-value="64"] {
+  background-color: #f65e3b;
+  color: #f9f6f2;
+}
+
+.tile[data-value="128"] {
+  background-color: #edcf72;
+  color: #f9f6f2;
+}
+
+.tile[data-value="256"] {
+  background-color: #edcc61;
+  color: #f9f6f2;
+}
+
+.tile[data-value="512"] {
+  background-color: #edc850;
+  color: #f9f6f2;
+}
+
+.tile[data-value="1024"] {
+  background-color: #edc53f;
+  color: #f9f6f2;
+}
+
+.tile[data-value="2048"] {
+  background-color: #edc22e;
+  color: #f9f6f2;
+}
+
+.tile[data-value="4096"] {
+  background-color: #3c3a32;
+  color: #f9f6f2;
+}
+
+.tile[data-value="8192"] {
+  background-color: #3c3a32;
+  color: #f9f6f2;
+}
+
+.tile[data-value="16384"] {
+  background-color: #3c3a32;
+  color: #f9f6f2;
+}
+
+.tile[data-value="32768"] {
+  background-color: #3c3a32;
+  color: #f9f6f2;
 }
 
 @keyframes show {
@@ -146,8 +223,7 @@ body {
   z-index: 10;
   display: none;
 }
-.game-over
-{
+.game-over {
   display: flex;
 }
 .scorebox {
