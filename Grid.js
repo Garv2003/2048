@@ -1,7 +1,8 @@
 const GRID_SIZE = 4;
 const CELL_SIZE = 13;
 const CELL_GAP = 1.5;
-var score = 0;
+let score = 0;
+
 const scoreElement = document.querySelector(".scoreno");
 const bestscoreElement = document.querySelector(".bestno");
 if (localStorage.getItem("bestscore") == null) {
@@ -45,13 +46,13 @@ export default class Grid {
     }, []);
   }
 
-  get #emptyCells() {
+  get emptyCells() {
     return this.#cells.filter((cell) => cell.tile == null);
   }
 
   randomEmptyCell() {
-    const randomIndex = Math.floor(Math.random() * this.#emptyCells.length);
-    return this.#emptyCells[randomIndex];
+    const randomIndex = Math.floor(Math.random() * this.emptyCells.length);
+    return this.emptyCells[randomIndex];
   }
 }
 

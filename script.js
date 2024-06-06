@@ -5,14 +5,42 @@ const gameBoard = document.getElementById("game-board");
 const gamemessage = document.querySelector(".game-message");
 const gameover = document.querySelector("#game-over");
 const newgame = document.querySelector(".btn");
+
 newgame.addEventListener("click", () => {
-  window.location.reload();
+  restartGame();
 });
 
-const grid = new Grid(gameBoard);
-grid.randomEmptyCell().tile = new Tile(gameBoard);
-grid.randomEmptyCell().tile = new Tile(gameBoard);
-setupInput();
+let grid;
+
+function startGame() {
+  const savedGrid = localStorage.getItem("grid");
+  grid = new Grid(gameBoard);
+  if (savedGrid != null) {
+    const values = JSON.parse(savedGrid);
+    grid.cells.forEach((cell, index) => {
+      if (values[index] === 0) return;
+      const tile = new Tile(gameBoard);
+      tile.value = values[index];
+      cell.tile = tile;
+    });
+    if (localStorage.getItem("GameOver") == "true") {
+      gamemessage.classList.add("game-over");
+    }
+  } else {
+    const newTile = new Tile(gameBoard);
+    grid.randomEmptyCell().tile = newTile;
+  }
+  setupInput();
+}
+
+function restartGame() {
+  gameBoard.innerHTML = "";
+  localStorage.removeItem("grid");
+  gamemessage.classList.remove("game-over");
+  startGame();
+}
+
+startGame();
 
 function setupInput() {
   window.addEventListener("keydown", handleInput, { once: true });
@@ -115,6 +143,11 @@ function handleAfterMove() {
     newTile.waitForTransition(true).then(() => {
       gamemessage.classList.add("game-over");
     });
+    localStorage.setItem(
+      "grid",
+      JSON.stringify(grid.cells.map((cell) => cell.tile?.value ?? 0))
+    );
+    localStorage.setItem("GameOver", "true");
     return;
   }
 
@@ -161,6 +194,10 @@ function slideTiles(cells) {
           cell.tile = null;
         }
       }
+      localStorage.setItem(
+        "grid",
+        JSON.stringify(grid.cells.map((cell) => cell.tile?.value ?? 0))
+      );
       return promises;
     })
   );
@@ -194,5 +231,5 @@ function canMove(cells) {
 }
 
 gameover.addEventListener("click", () => {
-  window.location.reload();
+  restartGame();
 });
